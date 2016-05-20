@@ -32,31 +32,12 @@ namespace Admin
                 });
                 
                 process.WaitForExit();
-
-                //var process = Process.Start(processStartInfo);
-                //Thread.Sleep(Timeout.Infinite);
             }
             catch (Exception e)
             {
                 ServiceEventSource.Current.ServiceHostInitializationFailed(e.ToString());
                 throw;
             }
-
-            /*
-            try
-            {
-                ServiceRuntime.RegisterServiceAsync("AdminType",
-                    context => new Admin(context)).GetAwaiter().GetResult();
-
-                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Admin).Name);
-
-                Thread.Sleep(Timeout.Infinite);
-            }
-            catch (Exception e)
-            {
-                ServiceEventSource.Current.ServiceHostInitializationFailed(e.ToString());
-                throw;
-            }*/
         }
     }
 }

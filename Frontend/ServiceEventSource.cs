@@ -82,6 +82,26 @@ namespace Frontend
             }
         }
 
+        [NonEvent]
+        public void ServiceMessage(ServiceContext serviceContext, string message, params object[] args)
+        {
+            if (this.IsEnabled())
+            {
+
+                string finalMessage = string.Format(message, args);
+                ServiceMessage(
+                    serviceContext.ServiceName.ToString(),
+                    serviceContext.ServiceTypeName,
+                    GetReplicaOrInstanceId(serviceContext),
+                    serviceContext.PartitionId,
+                    serviceContext.CodePackageActivationContext.ApplicationName,
+                    serviceContext.CodePackageActivationContext.ApplicationTypeName,
+                    serviceContext.NodeContext.NodeName,
+                    finalMessage);
+            }
+        }
+
+
         // For very high-frequency events it might be advantageous to raise events using WriteEventCore API.
         // This results in more efficient parameter handling, but requires explicit allocation of EventData structure and unsafe code.
         // To enable this code path, define UNSAFE conditional compilation symbol and turn on unsafe code support in project properties.
@@ -162,6 +182,22 @@ namespace Frontend
         #endregion
 
         #region Private methods
+        private static long GetReplicaOrInstanceId(ServiceContext context)
+        {
+            StatelessServiceContext stateless = context as StatelessServiceContext;
+            if (stateless != null)
+            {
+                return stateless.InstanceId;
+            }
+
+            StatefulServiceContext stateful = context as StatefulServiceContext;
+            if (stateful != null)
+            {
+                return stateful.ReplicaId;
+            }
+
+            throw new NotSupportedException("Context type not supported.");
+        }
 #if UNSAFE
         private int SizeInBytes(string s)
         {
