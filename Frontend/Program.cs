@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Fabric;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.Owin.Hosting;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Frontend
@@ -14,6 +14,16 @@ namespace Frontend
         /// </summary>
         private static void Main()
         {
+            Console.WriteLine("Starting server");
+
+            using (WebApp.Start("http://localhost:8300/", Startup.ConfigureApp))
+            {
+                Console.WriteLine("Enter to quit...");
+                Console.ReadLine();
+            }
+
+            return;
+
             try
             {
                 // The ServiceManifest.XML file defines one or more service type names.

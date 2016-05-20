@@ -1,4 +1,7 @@
-﻿using Owin;
+﻿using System.IO;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
+using Owin;
 
 namespace Frontend
 {
@@ -8,27 +11,23 @@ namespace Frontend
         // parameter in the WebApp.Start method.
         public static void ConfigureApp(IAppBuilder appBuilder)
         {
-            /*
-            GlobalConfiguration.Configure(config =>
+            var fileServerOptions = new FileServerOptions
             {
-                
+                EnableDefaultFiles = true
+            };
 
-            });*/
+            var currentDir = Directory.GetCurrentDirectory();
+            var debugString = "\\bin\\x64\\debug";
+            if( currentDir.ToLowerInvariant().Contains(debugString))
+            {
+                var index = currentDir.ToLowerInvariant().IndexOf(debugString);
+                var root = $"{currentDir.Substring(0, index)}\\PackageRoot\\Code";
 
-            appBuilder.UseFileServer();
+                fileServerOptions.EnableDirectoryBrowsing = true;
+                fileServerOptions.FileSystem = new PhysicalFileSystem(root);
+            }
 
-
-            // Configure Web API for self-host. 
-            /*
-            HttpConfiguration config = new HttpConfiguration();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-
-            appBuilder.UseWebApi(config);*/
+            appBuilder.UseFileServer(fileServerOptions);
         }
     }
 }
