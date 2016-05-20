@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "ScalableSpheres", "ScalableSpheres\ScalableSpheres.sfproj", "{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spheres", "Spheres\Spheres.csproj", "{55493961-D76E-4262-8B08-C3A8582C753A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spheres.Interfaces", "Spheres.Interfaces\Spheres.Interfaces.csproj", "{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{95751E09-73EF-47E5-A2E3-49A0D2161790}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Admin - NodeJS", "Admin\PackageRoot\Code\", "{85C8A3DE-7944-43AC-8E3E-630299EA2E31}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_9843"
+		Debug.AspNetCompiler.PhysicalPath = "Admin\PackageRoot\Code\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9843\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_9843"
+		Release.AspNetCompiler.PhysicalPath = "Admin\PackageRoot\Code\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9843\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "9843"
+		SlnRelativePath = "Admin\PackageRoot\Code\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Debug|x64.ActiveCfg = Debug|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Debug|x64.Build.0 = Debug|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Debug|x64.Deploy.0 = Debug|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Release|Any CPU.ActiveCfg = Release|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Release|x64.ActiveCfg = Release|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Release|x64.Build.0 = Release|x64
+		{A42F4FCB-30A8-4FD2-8E41-D080A0BCF067}.Release|x64.Deploy.0 = Release|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Debug|x64.ActiveCfg = Debug|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Debug|x64.Build.0 = Debug|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Release|Any CPU.ActiveCfg = Release|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Release|x64.ActiveCfg = Release|x64
+		{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}.Release|x64.Build.0 = Release|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Debug|x64.ActiveCfg = Debug|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Debug|x64.Build.0 = Debug|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Release|Any CPU.ActiveCfg = Release|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Release|x64.ActiveCfg = Release|x64
+		{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}.Release|x64.Build.0 = Release|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Debug|x64.ActiveCfg = Debug|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Debug|x64.Build.0 = Debug|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Release|Any CPU.ActiveCfg = Release|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Release|x64.ActiveCfg = Release|x64
+		{55493961-D76E-4262-8B08-C3A8582C753A}.Release|x64.Build.0 = Release|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Debug|x64.ActiveCfg = Debug|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Debug|x64.Build.0 = Debug|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Release|Any CPU.ActiveCfg = Release|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Release|x64.ActiveCfg = Release|x64
+		{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}.Release|x64.Build.0 = Release|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Debug|x64.ActiveCfg = Debug|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Debug|x64.Build.0 = Debug|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Release|Any CPU.ActiveCfg = Release|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Release|x64.ActiveCfg = Release|x64
+		{95751E09-73EF-47E5-A2E3-49A0D2161790}.Release|x64.Build.0 = Release|x64
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Debug|x64.Build.0 = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Release|x64.ActiveCfg = Debug|Any CPU
+		{85C8A3DE-7944-43AC-8E3E-630299EA2E31}.Release|x64.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

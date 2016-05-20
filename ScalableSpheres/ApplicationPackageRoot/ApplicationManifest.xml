@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ScalableSpheresType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <Parameters>
+      <Parameter Name="Admin_InstanceCount" DefaultValue="-1" />
+      <Parameter Name="Frontend_InstanceCount" DefaultValue="-1" />
+      <Parameter Name="API_InstanceCount" DefaultValue="-1" />
+      <Parameter Name="SphereActorService_PartitionCount" DefaultValue="10" />
+      <Parameter Name="SphereActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="SphereActorService_TargetReplicaSetSize" DefaultValue="3" />
+   </Parameters>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="AdminPkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="SpheresPkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="FrontendPkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="APIPkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+   </ServiceManifestImport>
+   <DefaultServices>
+      <Service Name="Admin">
+         <StatelessService ServiceTypeName="AdminType" InstanceCount="[Admin_InstanceCount]">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+      <Service Name="Frontend">
+         <StatelessService ServiceTypeName="FrontendType" InstanceCount="[Frontend_InstanceCount]">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+      <Service Name="API">
+         <StatelessService ServiceTypeName="APIType" InstanceCount="[API_InstanceCount]">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+      <Service Name="SphereActorService" GeneratedIdRef="f5c19672-f7ab-486b-a003-bcc92e45d84e|Persisted">
+         <StatefulService ServiceTypeName="SphereActorServiceType" TargetReplicaSetSize="[SphereActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereActorService_MinReplicaSetSize]">
+            <UniformInt64Partition PartitionCount="[SphereActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+         </StatefulService>
+      </Service>
+   </DefaultServices>
+</ApplicationManifest>
