@@ -5,14 +5,29 @@ var app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(function (request, response) {
-    response.sendFile("./public/index.html");
+app.post("/sphere", function (request, response) {
+    console.log("Adding sphere");
 });
 
+app.post("/box", function (request, response) {
+    console.log("Adding box");
+});
 
-app.get("/test", function (request, response) {
-    response.send("Hello world");
-    response.sendStatus(200);
+app.get("/actors", function (request, response) {
+    var actors = [
+        { partition: 1, actor: 1 },
+        { partition: 1, actor: 2 },
+        { partition: 1, actor: 3 },
+        { partition: 2, actor: 4 },
+        { partition: 2, actor: 5 },
+        { partition: 2, actor: 6 }
+    ];
+
+    response.send(actors);
+});
+
+app.use(function (request, response) {
+    response.sendFile("./public/index.html");
 });
 
 module.exports = app;

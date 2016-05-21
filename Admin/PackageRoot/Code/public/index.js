@@ -1,12 +1,43 @@
 ﻿(function () {
+    "use strict";
+
     var viewModel = function () {
         var self = this;
 
-        this.counter = ko.observable(0);
+        this.actors = ko.observableArray();
 
-        setInterval(function () {
-            self.counter(self.counter() + 1);
-        }, 1000);
+        function getActors() {
+            $.getJSON("actors", function (data) {
+                self.actors(data);
+            });
+        }
+
+        this.addSphere = function () {
+            $.ajax({
+                type: "POST",
+                url: "sphere"
+            });
+        };
+
+        this.addBox = function () {
+            $.ajax({
+                type: "POST",
+                url: "box"
+            });
+        };
+
+        this.refresh = function () {
+            getActors();
+        };
+
+        this.delete = function (actor) {
+            alert(actor);
+        };
+
+
+        (function constructor() {
+            getActors();
+        })();
     };
 
     $(function () {
