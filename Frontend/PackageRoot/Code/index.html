@@ -2,10 +2,133 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <style>
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+    </style>
+
+    <script src="Scripts/babylon.js" type="text/javascript"></script>
+    <script src="Scripts/pep.js" type="text/javascript"></script>
+    <script src="Scripts/Oimo.js" type="text/javascript"></script>
 </head>
 <body>
-    Hello world;
+    <canvas id="renderCanvas"></canvas>
+    <script type="text/javascript">
+        // https://www.sitepoint.com/understanding-collisions-physics-babylon-js-oimo-js/
+
+        var canvas = document.getElementById("renderCanvas");
+
+        var engine = new BABYLON.Engine(canvas, true);
+
+        var createScene = function () {
+            var scene = new BABYLON.Scene(engine);
+
+            scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
+            scene.clearColor = new BABYLON.Color3(0, 1, 0);
+            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+            camera.setTarget(BABYLON.Vector3.Zero());
+            camera.attachControl(canvas, false);
+
+            // Lights
+            var light0 = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(0, 10, 0), scene);
+            var light1 = new BABYLON.PointLight("Omni1", new BABYLON.Vector3(0, -10, 0), scene);
+            var light2 = new BABYLON.PointLight("Omni2", new BABYLON.Vector3(10, 0, 0), scene);
+            var light3 = new BABYLON.DirectionalLight("Dir0", new BABYLON.Vector3(1, -1, 0), scene);
+
+            // Lights colors
+            light0.diffuse = new BABYLON.Color3(1, 0, 0);
+            light0.specular = new BABYLON.Color3(1, 0, 0);
+
+            light1.diffuse = new BABYLON.Color3(0, 1, 0);
+            light1.specular = new BABYLON.Color3(0, 1, 0);
+
+            light2.diffuse = new BABYLON.Color3(0, 0, 1);
+            light2.specular = new BABYLON.Color3(0, 0, 1);
+
+            light3.diffuse = new BABYLON.Color3(1, 1, 1);
+            light3.specular = new BABYLON.Color3(1, 1, 1);
+
+
+            var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+            sphere.position = new BABYLON.Vector3(0, 10, 0);
+            sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+
+            var sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
+            sphere2.position = new BABYLON.Vector3(1, 12, 1);
+            sphere2.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+
+            box = BABYLON.Mesh.CreateBox("box1", 2, scene);
+            box.position = new BABYLON.Vector3(-1, 8, 0);
+            box.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+
+            var ground = BABYLON.Mesh.CreateGround("ground1", 60, 60, 2, scene);
+            ground.position = new BABYLON.Vector3(0, 0, 0);
+            ground.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
+            ground.material = new BABYLON.StandardMaterial("light", scene);
+            ground.material.emissiveColor = new BABYLON.Color3(1, 1, 0);
+
+
+            // Shadows
+            var shadowGenerator = new BABYLON.ShadowGenerator(1024, light0);
+
+            var shadowMapRenderList = shadowGenerator.getShadowMap().renderList;
+            shadowMapRenderList.push(sphere);
+            shadowMapRenderList.push(sphere2);
+            shadowMapRenderList.push(box);
+            shadowGenerator.useVarianceShadowMap = true;
+
+            //shadowGenerator.usePoissonSampling = true;
+
+            
+            var shadowGenerator2 = new BABYLON.ShadowGenerator(1024, light2);
+            var shadowMapRenderList2 = shadowGenerator2.getShadowMap().renderList;
+            shadowMapRenderList2.push(sphere);
+            shadowMapRenderList2.push(sphere2);
+            shadowMapRenderList2.push(box);
+            shadowGenerator2.usePoissonSampling = true;
+            
+
+
+            ground.receiveShadows = true;
+
+            var alpha = 0;
+            scene.beforeRender = function () {
+                light0.position = new BABYLON.Vector3(10 * Math.sin(alpha), 0, 10 * Math.cos(alpha));
+                light1.position = new BABYLON.Vector3(10 * Math.sin(alpha), 0, -10 * Math.cos(alpha));
+                light2.position = new BABYLON.Vector3(10 * Math.cos(alpha), 0, 10 * Math.sin(alpha));
+
+                alpha += 0.01;
+            };
+
+            return scene;
+
+        };
+
+        var scene = createScene();
+
+        engine.runRenderLoop(function () {
+            scene.render();
+        });
+
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+
+
+
+    </script>
 </body>
 </html>

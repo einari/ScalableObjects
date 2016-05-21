@@ -149,7 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PackageRoot\Code\index.html" />
+    <Content Include="PackageRoot\Code\Scripts\babylon.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
