@@ -31,7 +31,11 @@
         };
 
         this.delete = function (actor) {
-            alert(actor);
+            $.ajax({
+                type: "DELETE",
+                url: "sphere",
+                data: 1
+            });
         };
 
 

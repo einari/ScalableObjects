@@ -9,9 +9,14 @@ app.post("/sphere", function (request, response) {
     console.log("Adding sphere");
 });
 
+app.delete("/sphere", function (request, response) {
+    console.log("Deleting sphere");
+});
+
 app.post("/box", function (request, response) {
     console.log("Adding box");
 });
+
 
 app.get("/actors", function (request, response) {
     var actors = [
