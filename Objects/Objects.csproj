@@ -85,7 +85,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Spheres.Interfaces\Objects.Interfaces.csproj">
+    <ProjectReference Include="..\Objects.Interfaces\Objects.Interfaces.csproj">
       <Project>{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}</Project>
       <Name>Objects.Interfaces</Name>
     </ProjectReference>
