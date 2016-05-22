@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Actors.Client;
-using Spheres.Interfaces;
+using Objects.Interfaces;
 
-namespace Spheres
+namespace Objects
 {
     /// <remarks>
     /// This class represents an actor.

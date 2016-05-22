@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Spheres.Interfaces")]
+[assembly: AssemblyTitle("Objects")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Spheres.Interfaces")]
+[assembly: AssemblyProduct("Objects")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("635a80cd-99a5-43b8-97f3-16a00da0f3cf")]
+[assembly: Guid("55493961-d76e-4262-8b08-c3a8582c753a")]
 
 // Version information for an assembly consists of the following four values:
 //

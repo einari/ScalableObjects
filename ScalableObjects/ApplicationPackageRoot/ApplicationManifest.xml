@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ScalableSpheresType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ScalableObjectsType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="Admin_InstanceCount" DefaultValue="-1" />
       <Parameter Name="Frontend_InstanceCount" DefaultValue="-1" />
@@ -13,7 +13,7 @@
       <ConfigOverrides />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="SpheresPkg" ServiceManifestVersion="1.0.0" />
+      <ServiceManifestRef ServiceManifestName="ObjectsPkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="FrontendPkg" ServiceManifestVersion="1.0.0" />

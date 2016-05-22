@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
-namespace Spheres
+namespace Objects
 {
-    [EventSource(Name = "MyCompany-ScalableSpheres-Spheres")]
+    [EventSource(Name = "MyCompany-ScalableObjects-Objects")]
     internal sealed class ActorEventSource : EventSource
     {
         public static readonly ActorEventSource Current = new ActorEventSource();

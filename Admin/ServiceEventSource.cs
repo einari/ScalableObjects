@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Admin
 {
-    [EventSource(Name = "MyCompany-ScalableSpheres-Admin")]
+    [EventSource(Name = "MyCompany-ScalableObjects-Admin")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

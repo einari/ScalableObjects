@@ -18,7 +18,7 @@
     <ProjectReference Include="..\Admin\Admin.csproj" />
     <ProjectReference Include="..\API\API.csproj" />
     <ProjectReference Include="..\Frontend\Frontend.csproj" />
-    <ProjectReference Include="..\Spheres\Spheres.csproj" />
+    <ProjectReference Include="..\Spheres\Objects.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets" />
 </Project>

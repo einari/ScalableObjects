@@ -150,6 +150,9 @@
   <ItemGroup>
     <Content Include="PackageRoot\Code\index.html" />
     <Content Include="PackageRoot\Code\Scripts\babylon.js" />
+    <Content Include="PackageRoot\Code\Scripts\cannon.js" />
+    <Content Include="PackageRoot\Code\Scripts\Oimo.js" />
+    <Content Include="PackageRoot\Code\Scripts\pep.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Frontend
 {
-    [EventSource(Name = "MyCompany-ScalableSpheres-Frontend")]
+    [EventSource(Name = "MyCompany-ScalableObjects-Frontend")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();
