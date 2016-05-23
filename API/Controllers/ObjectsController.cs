@@ -16,22 +16,32 @@ namespace API.Controllers
         // GET api/objects 
         public async Task<IEnumerable<object>> Get()
         {
-            var activeActors = new List<ActorInformation>();
-            var serviceUri = new Uri("fabric:/ScalableObjects/SphereActorService");
-            var service = ActorServiceProxy.Create(serviceUri,0);
+            var activeActors = new List<object>();
 
-            ContinuationToken continuationToken = null;
-            do
+            var serviceUris = new[] {
+                new Uri("fabric:/ScalableObjects/SphereActorService"),
+                new Uri("fabric:/ScalableObjects/BoxActorService")
+            };
+
+            foreach (var serviceUri in serviceUris)
             {
-                var page = await service.GetActorsAsync(continuationToken, CancellationToken.None);
-                activeActors.AddRange(page.Items.Where(actor => actor.IsActive));
-                continuationToken = page.ContinuationToken;
-            } while (continuationToken != null);
+                var service = ActorServiceProxy.Create(serviceUri, 0);
 
-            return activeActors.Select(a=>new {
-                actor = a.ActorId.ToString(),
-                partition = a.ActorId.GetPartitionKey()
-            });
+                ContinuationToken continuationToken = null;
+                do
+                {
+                    var page = await service.GetActorsAsync(continuationToken, CancellationToken.None);
+                    activeActors.AddRange(page.Items.Where(actor => actor.IsActive).Select(actor => new
+                    {
+                        actor = actor.ActorId.ToString(),
+                        partition = actor.ActorId.GetPartitionKey(),
+                        type = GetTypeFromServiceUri(serviceUri)
+                    }));
+                    continuationToken = page.ContinuationToken;
+                } while (continuationToken != null);
+            }
+
+            return activeActors;
         }
 
         // POST api/objects
@@ -58,5 +68,14 @@ namespace API.Controllers
             var actor = ActorProxy.Create<ISphere>(actorId);
             actor.Delete();
         }
+
+
+        string GetTypeFromServiceUri(Uri uri)
+        {
+            if (uri.AbsolutePath.Contains("Sphere")) return "Sphere";
+            if (uri.AbsolutePath.Contains("Box")) return "Box";
+            return "Unknown";
+        }
+
     }
 }

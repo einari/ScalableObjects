@@ -22,9 +22,8 @@ namespace API
 
             appBuilder.UseWebApi(config);
 
-            GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
-            GlobalBoxEventRouter.Instance.SubscribeAsync<IBoxEvents>(new BoxEventHandler());
-
+            //GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
+            //GlobalBoxEventRouter.Instance.SubscribeAsync<IBoxEvents>(new BoxEventHandler());
         }
     }
 }

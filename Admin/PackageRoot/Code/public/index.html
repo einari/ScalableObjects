@@ -32,6 +32,7 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>Type</th>
                             <th>Partition</th>
                             <th>Actor</th>
                             <th>Action</th>
@@ -40,6 +41,8 @@
 
                     <tbody data-bind="foreach: actors">
                         <tr>
+                            <td data-bind="text: type"></td>
+
                             <td data-bind="text: partition">
                             </td>
                             <td data-bind="text: actor">

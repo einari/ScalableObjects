@@ -157,6 +157,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectsHub.cs" />
     <Compile Include="OwinCommunicationListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Frontend.cs" />

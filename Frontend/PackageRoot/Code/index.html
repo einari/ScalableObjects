@@ -42,8 +42,8 @@
 
             scene.enablePhysics(new BABYLON.Vector3(0, -10, 0), new BABYLON.OimoJSPlugin());
             scene.clearColor = new BABYLON.Color3(0, 1, 0);
-            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
-            camera.setTarget(BABYLON.Vector3.Zero());
+            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 40, -60), scene);
+            camera.setTarget(new BABYLON.Vector3(0, 5, 0));
             camera.attachControl(canvas, false);
 
             var light0 = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(0, 10, 0), scene);
@@ -164,8 +164,25 @@
             }
         }
 
+        var objectsHub = $.connection.objectsHub;
+
         $.connection.hub.start().done(function () {
             console.log("Running");
+
+            objectsHub.server.getObjects().done(function (data) {
+
+                data.forEach(function (object) {
+                    switch(object.type) {
+                        case "Sphere": 
+                            addSphere(object.actor);
+                            break;
+                        case "Box": 
+                            addBox(object.actor);
+                            break;
+                    }
+                });
+            });
+            
         });
 
     </script>
