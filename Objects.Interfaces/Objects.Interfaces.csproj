@@ -7,8 +7,8 @@
     <ProjectGuid>{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spheres.Interfaces</RootNamespace>
-    <AssemblyName>Spheres.Interfaces</AssemblyName>
+    <RootNamespace>Objects.Interfaces</RootNamespace>
+    <AssemblyName>Objects.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -67,6 +67,9 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSphereEventRouter.cs" />
+    <Compile Include="ISphereEventRouter.cs" />
+    <Compile Include="ISphereEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ISphere.cs" />
   </ItemGroup>

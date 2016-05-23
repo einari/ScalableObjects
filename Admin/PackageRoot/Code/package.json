@@ -10,5 +10,9 @@
   },
   "main": "app.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "http": "0.0.0",
+    "querystring": "^0.2.0"
+  }
 }

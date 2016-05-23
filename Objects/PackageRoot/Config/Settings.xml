@@ -7,4 +7,11 @@
    <Section Name="SphereActorServiceReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="None" />
    </Section>
+   <Section Name="SphereEventRouterActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="SphereEventRouterActorServiceReplicatorEndpoint" />
+      <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
+   </Section>
+   <Section Name="SphereEventRouterActorServiceReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="None" />
+   </Section>
 </Settings>

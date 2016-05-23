@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.props" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>a42f4fcb-30a8-4fd2-8e41-d080a0bcf067</ProjectGuid>
+    <ProjectGuid>60cf90ef-972e-4565-88b8-dee55a6422a6</ProjectGuid>
     <ProjectVersion>1.0</ProjectVersion>
     <IncludeInPackage>..\Admin</IncludeInPackage>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <ProjectReference Include="..\Admin\Admin.csproj" />
     <ProjectReference Include="..\API\API.csproj" />
     <ProjectReference Include="..\Frontend\Frontend.csproj" />
-    <ProjectReference Include="..\Spheres\Objects.csproj" />
+    <ProjectReference Include="..\Objects\Objects.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets" />
 </Project>

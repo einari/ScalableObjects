@@ -24,6 +24,9 @@ namespace Objects
                 ActorRuntime.RegisterActorAsync<Sphere>(
                    (context, actorType) => new ActorService(context, actorType, () => new Sphere())).GetAwaiter().GetResult();
 
+                ActorRuntime.RegisterActorAsync<SphereEventRouter>(
+                   (context, actorType) => new ActorService(context, actorType, () => new SphereEventRouter())).GetAwaiter().GetResult();
+
                 Thread.Sleep(Timeout.Infinite);
             }
             catch (Exception e)

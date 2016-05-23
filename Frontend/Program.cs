@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Threading;
-using Microsoft.Owin.Hosting;
+using Microsoft.ServiceFabric.Actors;
+using Microsoft.ServiceFabric.Actors.Client;
+using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Frontend
@@ -14,6 +15,7 @@ namespace Frontend
         /// </summary>
         private static void Main()
         {
+            /*
             Console.WriteLine("Starting server");
 
             using (WebApp.Start("http://localhost:8300/", Startup.ConfigureApp))
@@ -23,7 +25,7 @@ namespace Frontend
             }
 
             return;
-
+            */
             try
             {
                 // The ServiceManifest.XML file defines one or more service type names.
@@ -33,7 +35,7 @@ namespace Frontend
 
                 ServiceRuntime.RegisterServiceAsync("FrontendType",
                     context => new Frontend(context)).GetAwaiter().GetResult();
-
+                
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Frontend).Name);
 
                 // Prevents this host process from terminating so services keep running.

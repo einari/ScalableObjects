@@ -1,12 +1,15 @@
 ﻿using System.IO;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
+using Microsoft.ServiceFabric.Actors.Client;
+using Objects.Interfaces;
 using Owin;
 
 namespace Frontend
 {
     public static class Startup
     {
+
         // This code configures Web API. The Startup class is specified as a type
         // parameter in the WebApp.Start method.
         public static void ConfigureApp(IAppBuilder appBuilder)
@@ -28,6 +31,8 @@ namespace Frontend
             }
 
             appBuilder.UseFileServer(fileServerOptions);
+
+            GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
         }
     }
 }
