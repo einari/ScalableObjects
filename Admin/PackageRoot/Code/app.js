@@ -7,7 +7,7 @@ var app = express();
 app.use(express.static(path.join(__dirname, "public")));
 
 
-function callAPI(method, data) {
+function callAPI(method, data, callback) {
     var path = "/api/objects";
 
     var postData = data;
@@ -30,6 +30,8 @@ function callAPI(method, data) {
 
         response.on("data", function (data) {
             process.stdout.write(data);
+
+            if (callback) callback(data);
         });
     });
 
@@ -66,16 +68,11 @@ app.delete("/box", function (request, response) {
 });
 
 app.get("/actors", function (request, response) {
-    var actors = [
-        { partition: 1, actor: 1 },
-        { partition: 1, actor: 2 },
-        { partition: 1, actor: 3 },
-        { partition: 2, actor: 4 },
-        { partition: 2, actor: 5 },
-        { partition: 2, actor: 6 }
-    ];
-
-    response.send(actors);
+    console.log("Getting actors from API")
+    callAPI("GET", "", function (data) {
+        console.log("Actors : " + data);
+        response.send(data);
+    });
 });
 
 app.use(function (request, response) {

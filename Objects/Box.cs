@@ -5,7 +5,7 @@ using Objects.Interfaces;
 namespace Objects
 {
     [StatePersistence(StatePersistence.Persisted)]
-    internal class Sphere : Actor, ISphere
+    internal class Box : Actor, IBox
     {
         const string ColorState = "Color";
 
@@ -13,14 +13,14 @@ namespace Objects
 
         public Task Create()
         {
-            GlobalSphereEventRouter.Instance.Created(Id);
-            GlobalSphereEventRouter.Instance.ColorChanged(Id, CurrentColor.Red, CurrentColor.Green, CurrentColor.Blue);
+            GlobalBoxEventRouter.Instance.Created(Id);
+            GlobalBoxEventRouter.Instance.ColorChanged(Id, CurrentColor.Red, CurrentColor.Green, CurrentColor.Blue);
             return StateManager.SetState(ColorState, CurrentColor);
         }
 
         public Task Delete()
         {
-            GlobalSphereEventRouter.Instance.Deleted(Id);
+            GlobalBoxEventRouter.Instance.Deleted(Id);
             return Task.FromResult(0);
         }
 
@@ -31,7 +31,7 @@ namespace Objects
             if( color != CurrentColor )
             {
                 await StateManager.SetState(ColorState, CurrentColor);
-                await GlobalSphereEventRouter.Instance.ColorChanged(Id, CurrentColor.Red, CurrentColor.Green, CurrentColor.Blue);
+                await GlobalBoxEventRouter.Instance.ColorChanged(Id, CurrentColor.Red, CurrentColor.Green, CurrentColor.Blue);
             }
         }
     }

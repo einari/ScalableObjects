@@ -162,7 +162,9 @@
     <Compile Include="Frontend.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
+    <Compile Include="BoxEventHandler.cs" />
     <Compile Include="SphereEventHandler.cs" />
+    <Compile Include="BoxHub.cs" />
     <Compile Include="SphereHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

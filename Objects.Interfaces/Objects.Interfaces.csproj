@@ -67,9 +67,13 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalBoxEventRouter.cs" />
     <Compile Include="GlobalSphereEventRouter.cs" />
+    <Compile Include="IBox.cs" />
     <Compile Include="ISphere.cs" />
+    <Compile Include="IBoxEventRouter.cs" />
     <Compile Include="ISphereEventRouter.cs" />
+    <Compile Include="IBoxEvents.cs" />
     <Compile Include="ISphereEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

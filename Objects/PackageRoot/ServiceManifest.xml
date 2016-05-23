@@ -29,6 +29,34 @@
             </Extension>
          </Extensions>
       </StatefulServiceType>
+      <StatefulServiceType ServiceTypeName="BoxActorServiceType" HasPersistedState="true">
+         <Extensions>
+            <Extension Name="__GeneratedServiceType__" GeneratedId="c8522423-d662-413b-bed7-070528f1de4c|Persisted">
+               <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+                  <DefaultService Name="BoxActorService" />
+                  <ServiceEndpoint Name="BoxActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="BoxActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="BoxActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="BoxActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="BoxActorServiceLocalStoreConfig" />
+               </GeneratedNames>
+            </Extension>
+         </Extensions>
+      </StatefulServiceType>
+      <StatefulServiceType ServiceTypeName="BoxEventRouterActorServiceType">
+         <Extensions>
+            <Extension Name="__GeneratedServiceType__" GeneratedId="1226c72d-b454-43f6-bb7d-2d64625ca9a9|None">
+               <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+                  <DefaultService Name="BoxEventRouterActorService" />
+                  <ServiceEndpoint Name="BoxEventRouterActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="BoxEventRouterActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="BoxEventRouterActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="BoxEventRouterActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="BoxEventRouterActorServiceLocalStoreConfig" />
+               </GeneratedNames>
+            </Extension>
+         </Extensions>
+      </StatefulServiceType>
    </ServiceTypes>
    <CodePackage Name="Code" Version="1.0.0">
       <EntryPoint>
@@ -44,6 +72,10 @@
          <Endpoint Name="SphereActorServiceReplicatorEndpoint" />
          <Endpoint Name="SphereEventRouterActorServiceEndpoint" />
          <Endpoint Name="SphereEventRouterActorServiceReplicatorEndpoint" />
+         <Endpoint Name="BoxActorServiceEndpoint" />
+         <Endpoint Name="BoxActorServiceReplicatorEndpoint" />
+         <Endpoint Name="BoxEventRouterActorServiceEndpoint" />
+         <Endpoint Name="BoxEventRouterActorServiceReplicatorEndpoint" />
       </Endpoints>
    </Resources>
 </ServiceManifest>

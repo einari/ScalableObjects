@@ -14,4 +14,18 @@
    <Section Name="SphereEventRouterActorServiceReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="None" />
    </Section>
+   <Section Name="BoxActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="BoxActorServiceReplicatorEndpoint" />
+      <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
+   </Section>
+   <Section Name="BoxActorServiceReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="None" />
+   </Section>
+   <Section Name="BoxEventRouterActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="BoxEventRouterActorServiceReplicatorEndpoint" />
+      <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
+   </Section>
+   <Section Name="BoxEventRouterActorServiceReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="None" />
+   </Section>
 </Settings>

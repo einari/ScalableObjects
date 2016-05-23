@@ -35,6 +35,7 @@ namespace Frontend
             appBuilder.MapSignalR();
 
             GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
+            GlobalSphereEventRouter.Instance.SubscribeAsync<IBoxEvents>(new BoxEventHandler());
         }
     }
 }

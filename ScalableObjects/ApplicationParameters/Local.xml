@@ -6,5 +6,7 @@
       <Parameter Name="API_InstanceCount" Value="1" />
       <Parameter Name="SphereActorService_PartitionCount" Value="1" />
       <Parameter Name="SphereEventRouterActorService_PartitionCount" Value="1" />
+      <Parameter Name="BoxActorService_PartitionCount" Value="1" />
+      <Parameter Name="BoxEventRouterActorService_PartitionCount" Value="1" />
    </Parameters>
 </Application>

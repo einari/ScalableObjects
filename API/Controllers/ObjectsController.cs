@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
+using Microsoft.ServiceFabric.Actors.Query;
 using Objects.Interfaces;
 
 namespace API.Controllers
@@ -10,9 +14,24 @@ namespace API.Controllers
     public class ObjectsController : ApiController
     {
         // GET api/objects 
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<object>> Get()
         {
-            return new string[] { };
+            var activeActors = new List<ActorInformation>();
+            var serviceUri = new Uri("fabric:/ScalableObjects/SphereActorService");
+            var service = ActorServiceProxy.Create(serviceUri,0);
+
+            ContinuationToken continuationToken = null;
+            do
+            {
+                var page = await service.GetActorsAsync(continuationToken, CancellationToken.None);
+                activeActors.AddRange(page.Items.Where(actor => actor.IsActive));
+                continuationToken = page.ContinuationToken;
+            } while (continuationToken != null);
+
+            return activeActors.Select(a=>new {
+                actor = a.ActorId.ToString(),
+                partition = a.ActorId.GetPartitionKey()
+            });
         }
 
         // POST api/objects
@@ -26,7 +45,8 @@ namespace API.Controllers
                     sphere.Create();
                     break;
                 case "box":
-                    var box = ActorProxy.Create<ISphere>(actorId);
+                    var box = ActorProxy.Create<IBox>(actorId);
+                    box.Create();
                     break;
             }
         }
