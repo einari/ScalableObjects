@@ -7,10 +7,10 @@ namespace Objects
 {
     public class BoxEventRouter : Actor, IBoxEventRouter
     {
-        public Task Created(ActorId sphere)
+        public Task Created(ActorId box)
         {
             var events = GetEvent<IBoxEvents>();
-            events.Created(sphere);
+            events.Created(box);
             return Task.FromResult(0);
         }
 

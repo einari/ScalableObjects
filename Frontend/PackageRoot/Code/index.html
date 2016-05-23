@@ -155,7 +155,7 @@
         var boxHub = $.connection.boxHub;
         boxHub.client.created = function (id) {
             console.log("Created : " + id);
-            addSphere(id);
+            addBox(id);
         }
 
         boxHub.client.colorChanged = function (id, red, green, blue) {
@@ -163,7 +163,6 @@
                 objects[id].material.diffuseColor = objects[id].material.emissiveColor = new BABYLON.Color3(red, green, blue);
             }
         }
-
 
         $.connection.hub.start().done(function () {
             console.log("Running");
