@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using Microsoft.ServiceFabric.Actors.Client;
+using Objects.Interfaces;
 using Owin;
 
 namespace API
@@ -19,6 +21,10 @@ namespace API
             );
 
             appBuilder.UseWebApi(config);
+
+            GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
+            GlobalBoxEventRouter.Instance.SubscribeAsync<IBoxEvents>(new BoxEventHandler());
+
         }
     }
 }
