@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}</ProjectGuid>
+    <ProjectGuid>{2A25D982-DE58-4E22-8887-3799AF174965}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Objects.Interfaces</RootNamespace>
@@ -68,10 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSphereEventRouter.cs" />
+    <Compile Include="ISphere.cs" />
     <Compile Include="ISphereEventRouter.cs" />
     <Compile Include="ISphereEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ISphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

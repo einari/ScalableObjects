@@ -3,7 +3,7 @@
    <ServiceTypes>
       <StatefulServiceType ServiceTypeName="SphereActorServiceType" HasPersistedState="true">
          <Extensions>
-            <Extension Name="__GeneratedServiceType__" GeneratedId="f5c19672-f7ab-486b-a003-bcc92e45d84e|Persisted">
+            <Extension Name="__GeneratedServiceType__" GeneratedId="f9d999a7-3574-4f36-8900-5b6f1ee50613|Persisted">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
                   <DefaultService Name="SphereActorService" />
                   <ServiceEndpoint Name="SphereActorServiceEndpoint" />
@@ -17,7 +17,7 @@
       </StatefulServiceType>
       <StatefulServiceType ServiceTypeName="SphereEventRouterActorServiceType">
          <Extensions>
-            <Extension Name="__GeneratedServiceType__" GeneratedId="b503c729-f34d-4f9d-afd9-db24502b8d7b|None">
+            <Extension Name="__GeneratedServiceType__" GeneratedId="bef441e0-f194-4d69-beff-9f9b8d9a9d16|None">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
                   <DefaultService Name="SphereEventRouterActorService" />
                   <ServiceEndpoint Name="SphereEventRouterActorServiceEndpoint" />

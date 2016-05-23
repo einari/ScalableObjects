@@ -16,11 +16,11 @@
       <ConfigOverrides />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="ObjectsPkg" ServiceManifestVersion="1.0.0" />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="FrontendPkg" ServiceManifestVersion="1.0.0" />
       <ConfigOverrides />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="ObjectsPkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="APIPkg" ServiceManifestVersion="1.0.0" />
@@ -42,12 +42,12 @@
             <SingletonPartition />
          </StatelessService>
       </Service>
-      <Service Name="SphereActorService" GeneratedIdRef="f5c19672-f7ab-486b-a003-bcc92e45d84e|Persisted">
+      <Service Name="SphereActorService" GeneratedIdRef="f9d999a7-3574-4f36-8900-5b6f1ee50613|Persisted">
          <StatefulService ServiceTypeName="SphereActorServiceType" TargetReplicaSetSize="[SphereActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereActorService_MinReplicaSetSize]">
             <UniformInt64Partition PartitionCount="[SphereActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
          </StatefulService>
       </Service>
-      <Service Name="SphereEventRouterActorService" GeneratedIdRef="b503c729-f34d-4f9d-afd9-db24502b8d7b|None">
+      <Service Name="SphereEventRouterActorService" GeneratedIdRef="bef441e0-f194-4d69-beff-9f9b8d9a9d16|None">
          <StatefulService ServiceTypeName="SphereEventRouterActorServiceType" TargetReplicaSetSize="[SphereEventRouterActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereEventRouterActorService_MinReplicaSetSize]">
             <UniformInt64Partition PartitionCount="[SphereEventRouterActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
          </StatefulService>

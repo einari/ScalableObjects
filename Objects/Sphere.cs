@@ -11,7 +11,7 @@ namespace Objects
     {
         const string ColorState = "Color";
 
-        static Color CurrentColor = Colors.Green;
+        static Color CurrentColor = Colors.Red;
 
         public Task Create()
         {

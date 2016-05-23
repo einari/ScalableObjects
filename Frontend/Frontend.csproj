@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{F4B574C1-EC57-45A3-B6FE-B1C9D98FCE9B}</ProjectGuid>
+    <ProjectGuid>{DACF47D0-1168-4FC3-A9C6-A217C432CCE1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Frontend</RootNamespace>

@@ -17,6 +17,7 @@ namespace Frontend
         private static void Main()
         {
                
+            /*
             Console.WriteLine("Starting server");
 
             using (WebApp.Start("http://localhost:8300/", Startup.ConfigureApp))
@@ -26,7 +27,7 @@ namespace Frontend
             }
 
             return;
-            
+            */
 
             try
             {

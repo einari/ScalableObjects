@@ -178,31 +178,11 @@ if (-not $UseExistingClusterConnection)
     }
 }
 
-
 $RegKey = "HKLM:\SOFTWARE\Microsoft\Service Fabric SDK"
 $ModuleFolderPath = (Get-ItemProperty -Path $RegKey -Name FabricSDKPSModulePath).FabricSDKPSModulePath
 Import-Module "$ModuleFolderPath\ServiceFabricSDK.psm1"
 
 $IsUpgrade = ($publishProfile.UpgradeDeployment -and $publishProfile.UpgradeDeployment.Enabled -and $OverrideUpgradeBehavior -ne 'VetoUpgrade') -or $OverrideUpgradeBehavior -eq 'ForceUpgrade'
-
-New-Item -ItemType Directory -Force -Path C:\T
-
-$env:tmp = "C:\t"
-$env:temp = "C:\t"
-
-<#
-Write-Host "Copy Admin package"
-
-$AdminPkgSource = "$LocalFolder\..\..\Admin"
-$AdminPkgDestination = "$ApplicationPackagePath\AdminPkg"
-
-Write-Host "   Copying from $AdminPkgSource"
-Write-Host "   Copying to $AdminPkgDestination"
-
-
-md $AdminPkgDestination
-xcopy "$AdminPkgSource\*.*" "$AdminPkgDestination" /E /R
-#>
 
 if ($IsUpgrade)
 {

@@ -15,16 +15,17 @@ namespace Frontend
 
         public void Deleted(ActorId id)
         {
+            GlobalHost.ConnectionManager.GetHubContext<SphereHub>().Clients.All.deleted(id.ToString());
         }
 
         public void VersionChanged(ActorId id, string version)
         {
+            GlobalHost.ConnectionManager.GetHubContext<SphereHub>().Clients.All.versionChanged(id.ToString(), version);
         }
 
         public void ColorChanged(ActorId id, float red, float green, float blue)
         {
-            var i = 0;
-            i++;
+            GlobalHost.ConnectionManager.GetHubContext<SphereHub>().Clients.All.colorChanged(id.ToString(), red, green, blue);
         }
     }
 }

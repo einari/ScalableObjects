@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{55493961-D76E-4262-8B08-C3A8582C753A}</ProjectGuid>
+    <ProjectGuid>{160A034C-81AE-449C-96A8-782201BACCBC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Objects</RootNamespace>
@@ -80,9 +80,9 @@
     <Compile Include="Color.cs" />
     <Compile Include="Colors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sphere.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ActorEventSource.cs" />
+    <Compile Include="Sphere.cs" />
     <Compile Include="SphereEventRouter.cs" />
     <Compile Include="StateManagerExtensions.cs" />
   </ItemGroup>
@@ -90,11 +90,13 @@
     <None Include="PackageRoot\ServiceManifest.xml" />
     <None Include="PackageRoot\Config\Settings.xml" />
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Objects.Interfaces\Objects.Interfaces.csproj">
-      <Project>{635A80CD-99A5-43B8-97F3-16A00DA0F3CF}</Project>
+      <Project>{2A25D982-DE58-4E22-8887-3799AF174965}</Project>
       <Name>Objects.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>

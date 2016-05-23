@@ -2,9 +2,8 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.props" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>60cf90ef-972e-4565-88b8-dee55a6422a6</ProjectGuid>
+    <ProjectGuid>dc4ddd5f-21e1-474c-a006-133dc0ee4b4f</ProjectGuid>
     <ProjectVersion>1.0</ProjectVersion>
-    <IncludeInPackage>..\Admin</IncludeInPackage>
   </PropertyGroup>
   <ItemGroup>
     <None Include="ApplicationPackageRoot\ApplicationManifest.xml" />

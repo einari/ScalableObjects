@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
-    <ProjectGuid>{DD2C59D5-8BD9-40F6-B73B-BC968DF3B857}</ProjectGuid>
+    <ProjectGuid>{6C448A1A-DE53-44C9-94D3-68240A37690C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>API</RootNamespace>
@@ -24,7 +24,6 @@
     <ErrorReport>prompt</ErrorReport>
     <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <DebugType>pdbonly</DebugType>
@@ -105,8 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\ObjectsController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OwinCommunicationListener.cs" />
     <Compile Include="API.cs" />
     <Compile Include="Program.cs" />
@@ -121,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Objects.Interfaces\Objects.Interfaces.csproj">
-      <Project>{635a80cd-99a5-43b8-97f3-16a00da0f3cf}</Project>
+      <Project>{2a25d982-de58-4e22-8887-3799af174965}</Project>
       <Name>Objects.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>

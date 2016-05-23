@@ -209,8 +209,8 @@
         }
 
         hub.client.colorChanged = function (id, red, green, blue) {
-            if (spheres.hasOwnProperty(id)) {
-                spheres[id].material.diffuseColor = spheres[id].material.emissiveColor = new BABYLON.Color3(red, green, blue);
+            if (objects.hasOwnProperty(id)) {
+                objects[id].material.diffuseColor = objects[id].material.emissiveColor = new BABYLON.Color3(red, green, blue);
             }
         }
 
