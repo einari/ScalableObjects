@@ -44,21 +44,25 @@ function callAPI(method, data) {
 app.post("/sphere", function (request, response) {
     console.log("Adding sphere");
     callAPI("POST", "=sphere");
+    response.sendStatus(200);
 });
 
 app.delete("/sphere", function (request, response) {
     console.log("Deleting sphere");
     callAPI("DELETE", "=");
+    response.sendStatus(200);
 });
 
 app.post("/box", function (request, response) {
     console.log("Adding box");
     callAPI("POST", "=box");
+    response.sendStatus(200);
 });
 
 app.delete("/box", function (request, response) {
     console.log("deleting box");
     callAPI("DELETE", "=");
+    response.sendStatus(200);
 });
 
 app.get("/actors", function (request, response) {

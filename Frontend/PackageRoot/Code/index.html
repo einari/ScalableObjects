@@ -23,7 +23,11 @@
     <script src="Scripts/babylon.js" type="text/javascript"></script>
     <script src="Scripts/pep.js" type="text/javascript"></script>
     <script src="Scripts/Oimo.js" type="text/javascript"></script>
+    <script src="scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.signalr-2.2.0.min.js" type="text/javascript"></script>
+    <script src="signalr/hubs" type="text/javascript"></script>
 </head>
+
 <body>
     <canvas id="renderCanvas"></canvas>
     <script type="text/javascript">
@@ -44,28 +48,35 @@
 
             // Lights
             var light0 = new BABYLON.PointLight("Omni0", new BABYLON.Vector3(0, 10, 0), scene);
+            /*
             var light1 = new BABYLON.PointLight("Omni1", new BABYLON.Vector3(0, -10, 0), scene);
+            
             var light2 = new BABYLON.PointLight("Omni2", new BABYLON.Vector3(10, 0, 0), scene);
-            var light3 = new BABYLON.DirectionalLight("Dir0", new BABYLON.Vector3(1, -1, 0), scene);
+            var light3 = new BABYLON.DirectionalLight("Dir0", new BABYLON.Vector3(1, -1, 0), scene);*/
 
             // Lights colors
-            light0.diffuse = new BABYLON.Color3(1, 0, 0);
-            light0.specular = new BABYLON.Color3(1, 0, 0);
+            light0.diffuse = new BABYLON.Color3(0.4, 0.4, 0.4);
+            light0.specular = new BABYLON.Color3(0.7, 0.7, 0.7);
 
-            light1.diffuse = new BABYLON.Color3(0, 1, 0);
-            light1.specular = new BABYLON.Color3(0, 1, 0);
+            /*
+            light1.diffuse = new BABYLON.Color3(0.2, 0.2, 0.2);
+            light1.specular = new BABYLON.Color3(0.4, 0.4, 0.4);
 
+            
             light2.diffuse = new BABYLON.Color3(0, 0, 1);
             light2.specular = new BABYLON.Color3(0, 0, 1);
 
             light3.diffuse = new BABYLON.Color3(1, 1, 1);
             light3.specular = new BABYLON.Color3(1, 1, 1);
+            */
 
-
+            /*
             var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
             sphere.position = new BABYLON.Vector3(0, 10, 0);
             sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+            */
 
+            /*
             var sphere2 = BABYLON.Mesh.CreateSphere("sphere2", 16, 2, scene);
             sphere2.position = new BABYLON.Vector3(1, 12, 1);
             sphere2.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
@@ -73,15 +84,38 @@
             box = BABYLON.Mesh.CreateBox("box1", 2, scene);
             box.position = new BABYLON.Vector3(-1, 8, 0);
             box.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
-
+            */
             var ground = BABYLON.Mesh.CreateGround("ground1", 60, 60, 2, scene);
             ground.position = new BABYLON.Vector3(0, 0, 0);
             ground.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
             ground.material = new BABYLON.StandardMaterial("light", scene);
-            ground.material.emissiveColor = new BABYLON.Color3(1, 1, 0);
+            ground.material.emissiveColor = new BABYLON.Color3(0.4, 0.4, 0.4);
 
+            var farWall = BABYLON.Mesh.CreatePlane("plane", 60, scene);
+            farWall.position.z = 30;
+            farWall.position.y = 30;
+            farWall.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
+
+            var nearWall = BABYLON.Mesh.CreatePlane("plane", 60, scene);
+            nearWall.position.z = -30;
+            nearWall.position.y = 30;
+            nearWall.rotation.y = Math.PI;
+            nearWall.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
+
+            var leftWall = BABYLON.Mesh.CreatePlane("plane", 60, scene);
+            leftWall.position.x = 30;
+            leftWall.position.y = 30;
+            leftWall.rotation.y = Math.PI/2;
+            leftWall.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
+
+            var rightWall = BABYLON.Mesh.CreatePlane("plane", 60, scene);
+            rightWall.position.x = -30;
+            rightWall.position.y = 30;
+            rightWall.rotation.y = -(Math.PI / 2);
+            rightWall.setPhysicsState(BABYLON.PhysicsEngine.PlaneImpostor, { mass: 0, friction: 0.5, restitution: 0.7 });
 
             // Shadows
+            /*
             var shadowGenerator = new BABYLON.ShadowGenerator(1024, light0);
 
             var shadowMapRenderList = shadowGenerator.getShadowMap().renderList;
@@ -89,17 +123,17 @@
             shadowMapRenderList.push(sphere2);
             shadowMapRenderList.push(box);
             shadowGenerator.useVarianceShadowMap = true;
-
+            */
             //shadowGenerator.usePoissonSampling = true;
 
-            
+            /*
             var shadowGenerator2 = new BABYLON.ShadowGenerator(1024, light2);
             var shadowMapRenderList2 = shadowGenerator2.getShadowMap().renderList;
             shadowMapRenderList2.push(sphere);
             shadowMapRenderList2.push(sphere2);
             shadowMapRenderList2.push(box);
             shadowGenerator2.usePoissonSampling = true;
-            
+            */
 
 
             ground.receiveShadows = true;
@@ -107,8 +141,8 @@
             var alpha = 0;
             scene.beforeRender = function () {
                 light0.position = new BABYLON.Vector3(10 * Math.sin(alpha), 0, 10 * Math.cos(alpha));
-                light1.position = new BABYLON.Vector3(10 * Math.sin(alpha), 0, -10 * Math.cos(alpha));
-                light2.position = new BABYLON.Vector3(10 * Math.cos(alpha), 0, 10 * Math.sin(alpha));
+                //light1.position = new BABYLON.Vector3(10 * Math.sin(alpha), 0, -10 * Math.cos(alpha));
+                //light2.position = new BABYLON.Vector3(10 * Math.cos(alpha), 0, 10 * Math.sin(alpha));
 
                 alpha += 0.01;
             };
@@ -127,7 +161,62 @@
             engine.resize();
         });
 
+        var objects = {};
 
+        function addSphere(id) {
+            var sphere = BABYLON.Mesh.CreateSphere(id, 16, 2, scene);
+            sphere.position = new BABYLON.Vector3(Math.random(), 10, Math.random());
+            sphere.setPhysicsState(BABYLON.PhysicsEngine.SphereImpostor, { mass: 1 });
+            sphere.material = new BABYLON.StandardMaterial("light", scene);
+            sphere.material.ambientColor = new BABYLON.Color3(0, 0, 0);
+            sphere.material.diffuseColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+            sphere.material.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+            sphere.material.specularColor = new BABYLON.Color3(1, 1, 1);
+            sphere.material.specularPower = 0.4;
+
+            objects[id] = sphere;
+        }
+
+        function addBox(id) {
+
+            var box = BABYLON.Mesh.CreateBox(id, 2, scene);
+            box.position = new BABYLON.Vector3(Math.random(), 10, Math.random());
+            box.setPhysicsState(BABYLON.PhysicsEngine.BoxImpostor, { mass: 1 });
+            box.material = new BABYLON.StandardMaterial("light", scene);
+            box.material.ambientColor = new BABYLON.Color3(0, 0, 0);
+            box.material.diffuseColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+            box.material.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+            box.material.specularColor = new BABYLON.Color3(1, 1, 1);
+            box.material.specularPower = 0.4;
+
+            objects[id] = box;
+        }
+
+
+        window.addEventListener("keyup", function (e) {
+            if (e.keyCode == 83) {
+                addSphere(Math.random().toString());
+            }
+            if (e.keyCode == 66) {
+                addBox(Math.random().toString());
+            }
+        });
+
+        var hub = $.connection.sphereHub;
+        hub.client.created = function (id) {
+            console.log("Created : " + id);
+            addSphere(id);
+        }
+
+        hub.client.colorChanged = function (id, red, green, blue) {
+            if (spheres.hasOwnProperty(id)) {
+                spheres[id].material.diffuseColor = spheres[id].material.emissiveColor = new BABYLON.Color3(red, green, blue);
+            }
+        }
+
+        $.connection.hub.start().done(function () {
+            console.log("Running");
+        });
 
     </script>
 </body>

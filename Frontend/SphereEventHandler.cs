@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNet.SignalR;
 using Microsoft.ServiceFabric.Actors;
 using Objects.Interfaces;
 
@@ -9,8 +10,7 @@ namespace Frontend
 
         public void Created(ActorId id)
         {
-            var i = 0;
-            i++;
+            GlobalHost.ConnectionManager.GetHubContext<SphereHub>().Clients.All.created(id.ToString());
         }
 
         public void Deleted(ActorId id)
@@ -23,7 +23,8 @@ namespace Frontend
 
         public void ColorChanged(ActorId id, float red, float green, float blue)
         {
+            var i = 0;
+            i++;
         }
-
     }
 }

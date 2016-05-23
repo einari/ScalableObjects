@@ -32,7 +32,9 @@ namespace Frontend
 
             appBuilder.UseFileServer(fileServerOptions);
 
-            GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
+            appBuilder.MapSignalR();
+
+            //GlobalSphereEventRouter.Instance.SubscribeAsync<ISphereEvents>(new SphereEventHandler());
         }
     }
 }
