@@ -1,72 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ScalableObjectsType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Parameters>
-      <Parameter Name="Admin_InstanceCount" DefaultValue="-1" />
-      <Parameter Name="Frontend_InstanceCount" DefaultValue="-1" />
-      <Parameter Name="API_InstanceCount" DefaultValue="-1" />
-      <Parameter Name="SphereActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="SphereActorService_MinReplicaSetSize" DefaultValue="2" />
-      <Parameter Name="SphereActorService_TargetReplicaSetSize" DefaultValue="3" />
-      <Parameter Name="SphereEventRouterActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="SphereEventRouterActorService_MinReplicaSetSize" DefaultValue="1" />
-      <Parameter Name="SphereEventRouterActorService_TargetReplicaSetSize" DefaultValue="1" />
-      <Parameter Name="BoxActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="BoxActorService_MinReplicaSetSize" DefaultValue="2" />
-      <Parameter Name="BoxActorService_TargetReplicaSetSize" DefaultValue="3" />
-      <Parameter Name="BoxEventRouterActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="BoxEventRouterActorService_MinReplicaSetSize" DefaultValue="1" />
-      <Parameter Name="BoxEventRouterActorService_TargetReplicaSetSize" DefaultValue="1" />
-   </Parameters>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="AdminPkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="FrontendPkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="ObjectsPkg" ServiceManifestVersion="1.0.0" />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="APIPkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-   </ServiceManifestImport>
-   <DefaultServices>
-      <Service Name="Admin">
-         <StatelessService ServiceTypeName="AdminType" InstanceCount="[Admin_InstanceCount]">
-            <SingletonPartition />
-         </StatelessService>
-      </Service>
-      <Service Name="Frontend">
-         <StatelessService ServiceTypeName="FrontendType" InstanceCount="[Frontend_InstanceCount]">
-            <SingletonPartition />
-         </StatelessService>
-      </Service>
-      <Service Name="API">
-         <StatelessService ServiceTypeName="APIType" InstanceCount="[API_InstanceCount]">
-            <SingletonPartition />
-         </StatelessService>
-      </Service>
-      <Service Name="SphereActorService" GeneratedIdRef="f9d999a7-3574-4f36-8900-5b6f1ee50613|Persisted">
-         <StatefulService ServiceTypeName="SphereActorServiceType" TargetReplicaSetSize="[SphereActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereActorService_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[SphereActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-      <Service Name="SphereEventRouterActorService" GeneratedIdRef="bef441e0-f194-4d69-beff-9f9b8d9a9d16|None">
-         <StatefulService ServiceTypeName="SphereEventRouterActorServiceType" TargetReplicaSetSize="[SphereEventRouterActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereEventRouterActorService_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[SphereEventRouterActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-      <Service Name="BoxActorService" GeneratedIdRef="c8522423-d662-413b-bed7-070528f1de4c|Persisted">
-         <StatefulService ServiceTypeName="BoxActorServiceType" TargetReplicaSetSize="[BoxActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BoxActorService_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[BoxActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-      <Service Name="BoxEventRouterActorService" GeneratedIdRef="1226c72d-b454-43f6-bb7d-2d64625ca9a9|None">
-         <StatefulService ServiceTypeName="BoxEventRouterActorServiceType" TargetReplicaSetSize="[BoxEventRouterActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BoxEventRouterActorService_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[BoxEventRouterActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-   </DefaultServices>
+  <Parameters>
+    <Parameter Name="Admin_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="Frontend_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="API_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="SphereActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="SphereActorService_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="SphereActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SphereEventRouterActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="SphereEventRouterActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="SphereEventRouterActorService_TargetReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="BoxActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="BoxActorService_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="BoxActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BoxEventRouterActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="BoxEventRouterActorService_MinReplicaSetSize" DefaultValue="1" />
+    <Parameter Name="BoxEventRouterActorService_TargetReplicaSetSize" DefaultValue="1" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="AdminPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="FrontendPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ObjectsPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="APIPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="Admin">
+      <StatelessService ServiceTypeName="AdminType" InstanceCount="[Admin_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="Frontend">
+      <StatelessService ServiceTypeName="FrontendType" InstanceCount="[Frontend_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="API">
+      <StatelessService ServiceTypeName="APIType" InstanceCount="[API_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="SphereActorService" GeneratedIdRef="f9d999a7-3574-4f36-8900-5b6f1ee50613|Persisted">
+      <StatefulService ServiceTypeName="SphereActorServiceType" TargetReplicaSetSize="[SphereActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[SphereActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="SphereEventRouterActorService" GeneratedIdRef="bef441e0-f194-4d69-beff-9f9b8d9a9d16|None">
+      <StatefulService ServiceTypeName="SphereEventRouterActorServiceType" TargetReplicaSetSize="[SphereEventRouterActorService_TargetReplicaSetSize]" MinReplicaSetSize="[SphereEventRouterActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[SphereEventRouterActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="BoxActorService" GeneratedIdRef="c8522423-d662-413b-bed7-070528f1de4c|Persisted">
+      <StatefulService ServiceTypeName="BoxActorServiceType" TargetReplicaSetSize="[BoxActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BoxActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BoxActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="BoxEventRouterActorService" GeneratedIdRef="1226c72d-b454-43f6-bb7d-2d64625ca9a9|None">
+      <StatefulService ServiceTypeName="BoxEventRouterActorServiceType" TargetReplicaSetSize="[BoxEventRouterActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BoxEventRouterActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BoxEventRouterActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </DefaultServices>
 </ApplicationManifest>

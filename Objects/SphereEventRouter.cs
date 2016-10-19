@@ -7,6 +7,8 @@ namespace Objects
 {
     public class SphereEventRouter : Actor, ISphereEventRouter
     {
+        public SphereEventRouter(ActorService actorService, ActorId actorId) : base(actorService, actorId) { }
+
         public Task Created(ActorId sphere)
         {
             var events = GetEvent<ISphereEvents>();

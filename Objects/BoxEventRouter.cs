@@ -7,6 +7,8 @@ namespace Objects
 {
     public class BoxEventRouter : Actor, IBoxEventRouter
     {
+        public BoxEventRouter(ActorService actorService, ActorId actorId) : base(actorService, actorId) { }
+
         public Task Created(ActorId box)
         {
             var events = GetEvent<IBoxEvents>();

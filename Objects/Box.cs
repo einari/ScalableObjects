@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Objects.Interfaces;
 
@@ -10,6 +11,8 @@ namespace Objects
         const string ColorState = "Color";
 
         static Color CurrentColor = Colors.Red;
+
+        public Box(ActorService actorService, ActorId actorId) : base(actorService, actorId) { }
 
         public Task Create()
         {
