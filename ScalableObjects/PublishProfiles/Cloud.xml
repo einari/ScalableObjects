@@ -16,7 +16,7 @@
                                     StoreName="My" />
 
   -->
-  <ClusterConnectionParameters />
+  <ClusterConnectionParameters ConnectionEndpoint="http://cadsf.northeurope.cloudapp.azure.com:19080" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Local.xml" />
   <UpgradeDeployment Mode="Monitored" Enabled="true">
     <Parameters FailureAction="Rollback" UpgradeReplicaSetCheckTimeoutSec="1" Force="True" />
